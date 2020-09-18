@@ -1,7 +1,7 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { createStore, combineReducers } from '@reduxjs/toolkit'
-import { drinkReducer } from 'reducers/drinkReducer'
+import { drinksReducer } from 'reducers/drinksReducer'
 import { Home } from 'pages/Home'
 
 const reducers = combineReducers(drinkReducer)

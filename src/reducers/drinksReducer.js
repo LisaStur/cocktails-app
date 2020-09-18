@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export const drinkReducer = createSlice({
+export const drinksReducer = createSlice({
   name: 'drinks',
   initialState: {
     all: [],
