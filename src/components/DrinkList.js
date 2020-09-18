@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export const DrinkList = () => {
   const [drinks, setDrinks] = useState([])
@@ -15,8 +16,10 @@ export const DrinkList = () => {
     <div>
       {drinks.map(drink => (
         <section key={drink.idDrink}>
-          <img src={`${drink.strDrinkThumb}/preview`} alt={drink.strDrink}/>
-          <h2>{drink.strDrink}</h2>
+          <Link to={`drinks/${drink.idDrink}`}>
+            <img src={`${drink.strDrinkThumb}/preview`} alt={drink.strDrink} />
+            <h2>{drink.strDrink}</h2>
+          </Link>
         </section>
       ))}
     </div>
