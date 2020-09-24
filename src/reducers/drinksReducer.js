@@ -1,10 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 export const drinksReducer = createSlice({
-  name: 'drinks',
+  name: 'drinksReducer',
   initialState: {
     all: [],
     drinkInfo: {}
   },
-  reducers: {}
+  reducers: {
+    setDrinks: (state, action) => {
+      state.all = action.payload
+    },
+    setInfo: (state, action) => {
+      state.drinkInfo = action.payload
+    }
+  }
 })

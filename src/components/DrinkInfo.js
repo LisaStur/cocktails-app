@@ -1,22 +1,33 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import styled from 'styled-components'
+import { drinksReducer } from 'reducers/drinksReducer'
+
+const DrinkSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
 
 export const DrinkInfo = () => {
+  const dispatch = useDispatch()
   const { drinkId } = useParams()
-  const [info, setInfo] = useState([])
+  const info = useSelector((store) => store.reducer.drinkInfo)
 
   useEffect(() => {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkId}`)
-      .then(res => res.json())
-      .then(json => {
-        setInfo(json.drinks[0])
-    })
-  }, [drinkId])
+      .then((res) => res.json())
+      .then((json) => dispatch(
+        drinksReducer.actions.setInfo(json.drinks[0])
+      ))
+  }, [drinkId, dispatch])
+  console.log(info)
 
   return (
-    <div>
-      <img src={info.strDrinkThumb} alt={info.idDrink}/>
+    <DrinkSection>
       <h2>{info.strDrink}</h2>
+      <img src={info.strDrinkThumb} alt={info.strDrink} />
       <p>{info.strInstructions}</p>
       <p>{info.strIngredient1}{info.strMeasure1}</p>
       <p>{info.strIngredient2}{info.strMeasure2}</p>
@@ -33,6 +44,6 @@ export const DrinkInfo = () => {
       <p>{info.strIngredient13}{info.strMeasure13}</p>
       <p>{info.strIngredient14}{info.strMeasure14}</p>
       <p>{info.strIngredient15}{info.strMeasure15}</p>
-    </div>
+    </DrinkSection>
   )
 }
