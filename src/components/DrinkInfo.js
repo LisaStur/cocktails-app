@@ -8,6 +8,57 @@ const DrinkSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 5%;
+
+  @media (min-width: 668px) {
+    flex-direction: row;
+  }
+`
+const DrinkNameSmallScreen = styled.section`
+  font-size: 32px;  
+  padding-bottom: 3%;
+    
+  @media (min-width: 668px) {
+    display: none;
+  }
+`
+const DrinkImage = styled.img`
+  width: 100%;
+  height: auto;
+
+  @media (min-width: 668px) {
+    width: 50%;
+  }
+
+`
+const DrinkNameBigScreen = styled.div`
+  font-size: 32px;  
+  padding-bottom: 3%;
+  display: none;
+
+  @media (min-width: 668px) {
+    display: flex;
+  }  
+`
+const BigScreenContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+`
+const Instructions = styled.p`
+  display: flex;
+  font-size: 24px;
+`
+const Ingredients = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`
+const Ingredient = styled.p`
+  font-size: 18px;
+  padding-right: 10%;
+  margin-block-start: 0;
+  margin-block-end: 0; 
 `
 
 export const DrinkInfo = () => {
@@ -26,24 +77,72 @@ export const DrinkInfo = () => {
 
   return (
     <DrinkSection>
-      <h2>{info.strDrink}</h2>
-      <img src={info.strDrinkThumb} alt={info.strDrink} />
-      <p>{info.strInstructions}</p>
-      <p>{info.strIngredient1}{info.strMeasure1}</p>
-      <p>{info.strIngredient2}{info.strMeasure2}</p>
-      <p>{info.strIngredient3}{info.strMeasure3}</p>
-      <p>{info.strIngredient4}{info.strMeasure4}</p>
-      <p>{info.strIngredient5}{info.strMeasure5}</p>
-      <p>{info.strIngredient6}{info.strMeasure6}</p>
-      <p>{info.strIngredient7}{info.strMeasure7}</p>
-      <p>{info.strIngredient8}{info.strMeasure8}</p>
-      <p>{info.strIngredient9}{info.strMeasure9}</p>
-      <p>{info.strIngredient10}{info.strMeasure10}</p>
-      <p>{info.strIngredient11}{info.strMeasure11}</p>
-      <p>{info.strIngredient12}{info.strMeasure12}</p>
-      <p>{info.strIngredient13}{info.strMeasure13}</p>
-      <p>{info.strIngredient14}{info.strMeasure14}</p>
-      <p>{info.strIngredient15}{info.strMeasure15}</p>
+      <DrinkNameSmallScreen>{info.strDrink}</DrinkNameSmallScreen>
+      <DrinkImage src={info.strDrinkThumb} alt={info.strDrink} />
+      <BigScreenContainer>
+        <DrinkNameBigScreen>{info.strDrink}</DrinkNameBigScreen>
+        <Instructions>{info.strInstructions}</Instructions>
+        <Ingredients>
+          <Ingredient>{info.strIngredient1}</Ingredient>
+          <Ingredient>{info.strMeasure1}</Ingredient>
+        </Ingredients>
+        <Ingredients>
+          <Ingredient>{info.strIngredient2}</Ingredient>
+          <Ingredient>{info.strMeasure2}</Ingredient>
+        </Ingredients>
+        <Ingredients>
+          <Ingredient>{info.strIngredient3}</Ingredient>
+          <Ingredient>{info.strMeasure3}</Ingredient>
+        </Ingredients>
+        <Ingredients>
+          <Ingredient>{info.strIngredient4}</Ingredient>
+          <Ingredient>{info.strMeasure4}</Ingredient>
+        </Ingredients>
+        <Ingredients>
+          <Ingredient>{info.strIngredient5}</Ingredient>
+          <Ingredient>{info.strMeasure5}</Ingredient>
+        </Ingredients>
+        <Ingredients>
+          <Ingredient>{info.strIngredient6}</Ingredient>
+          <Ingredient>{info.strMeasure6}</Ingredient>
+        </Ingredients>
+        <Ingredients>
+          <Ingredient>{info.strIngredient7}</Ingredient>
+          <Ingredient>{info.strMeasure7}</Ingredient>
+        </Ingredients>
+        <Ingredients>
+          <Ingredient>{info.strIngredient8}</Ingredient>
+          <Ingredient>{info.strMeasure8}</Ingredient>
+        </Ingredients>
+        <Ingredients>
+          <Ingredient>{info.strIngredient9}</Ingredient>
+          <Ingredient>{info.strMeasure9}</Ingredient>
+        </Ingredients>
+        <Ingredients>
+          <Ingredient>{info.strIngredient10}</Ingredient>
+          <Ingredient>{info.strMeasure10}</Ingredient>
+        </Ingredients>
+        <Ingredients>
+          <Ingredient>{info.strIngredient11}</Ingredient>
+          <Ingredient>{info.strMeasure11}</Ingredient>
+        </Ingredients>
+        <Ingredients>
+          <Ingredient>{info.strIngredient12}</Ingredient>
+          <Ingredient>{info.strMeasure12}</Ingredient>
+        </Ingredients>
+        <Ingredients>
+          <Ingredient>{info.strIngredient13}</Ingredient>
+          <Ingredient>{info.strMeasure13}</Ingredient>
+        </Ingredients>
+        <Ingredients>
+          <Ingredient>{info.strIngredient14}</Ingredient>
+          <Ingredient>{info.strMeasure14}</Ingredient>
+        </Ingredients>
+        <Ingredients>
+          <Ingredient>{info.strIngredient15}</Ingredient>
+          <Ingredient>{info.strMeasure15}</Ingredient>
+        </Ingredients>
+      </BigScreenContainer>
     </DrinkSection>
   )
 }

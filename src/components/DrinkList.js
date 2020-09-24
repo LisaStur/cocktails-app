@@ -7,6 +7,32 @@ import { drinksReducer } from 'reducers/drinksReducer'
 const DrinkLink = styled(Link)`
   text-decoration: none;
 `
+const ListSection = styled.section`
+  display: flex;
+  flex-flow: row wrap;
+`
+const DrinkCard = styled.div`
+  display: flex;
+  width: 90%;
+  margin: 5% 5% 0 5%;
+
+  @media (min-width: 668px) {
+    width: 46%;
+    margin: 5% 2% 0 2%;
+  }
+  @media (min-width: 1024px) {
+    width: 23%;
+    margin: 5% 1% 0 1%;
+  }
+`
+const DrinkThumb = styled.img`
+  width: 100%;
+`
+const DrinkName = styled.h2`
+  font-size: 24px;
+  color: black;
+  text-align: center;
+`
 
 export const DrinkList = () => {
   const dispatch = useDispatch()
@@ -19,16 +45,16 @@ export const DrinkList = () => {
   }, [dispatch])
 
   return (
-    <div>
+    <ListSection>
       {drinks.map((drink) => (
-        <section key={drink.idDrink}>
+        <DrinkCard key={drink.idDrink}>
           <DrinkLink to={`drinks/${drink.idDrink}`}>
-            <img src={`${drink.strDrinkThumb}/preview`} alt={drink.strDrink} />
-            <h2>{drink.strDrink}</h2>
+            <DrinkThumb src={drink.strDrinkThumb} alt={drink.strDrink} />
+            <DrinkName>{drink.strDrink}</DrinkName>
           </DrinkLink>
-        </section>
+        </DrinkCard>
       ))}
-    </div>
+    </ListSection>
 
   )
 }
