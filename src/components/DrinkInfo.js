@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
-import { drinksReducer } from 'reducers/drinksReducer'
+import { fetchInfo } from 'reducers/drinksReducer'
 
 const DrinkSection = styled.section`
   display: flex;
@@ -14,9 +14,11 @@ const DrinkSection = styled.section`
     flex-direction: row;
   }
 `
-const DrinkNameSmallScreen = styled.section`
+const DrinkNameSmallScreen = styled.h2`
+  font-family: 'Merienda', cursive;
   font-size: 32px;  
   padding-bottom: 3%;
+  text-align  : center;
     
   @media (min-width: 668px) {
     display: none;
@@ -29,9 +31,9 @@ const DrinkImage = styled.img`
   @media (min-width: 668px) {
     width: 50%;
   }
-
 `
 const DrinkNameBigScreen = styled.div`
+  font-family: 'Merienda', cursive;
   font-size: 32px;  
   padding-bottom: 3%;
   display: none;
@@ -67,13 +69,8 @@ export const DrinkInfo = () => {
   const info = useSelector((store) => store.reducer.drinkInfo)
 
   useEffect(() => {
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkId}`)
-      .then((res) => res.json())
-      .then((json) => dispatch(
-        drinksReducer.actions.setInfo(json.drinks[0])
-      ))
-  }, [drinkId, dispatch])
-  console.log(info)
+    dispatch(fetchInfo(drinkId))
+  }, [dispatch, drinkId])
 
   return (
     <DrinkSection>
