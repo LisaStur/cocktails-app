@@ -27,6 +27,7 @@ const DrinkNameSmallScreen = styled.h2`
 const DrinkImage = styled.img`
   width: 100%;
   height: auto;
+  border-radius: 8px;
 
   @media (min-width: 668px) {
     width: 50%;
