@@ -26,7 +26,7 @@ const Header = styled.h1`
 const SelectType = styled.select`
   font-size:18px;
   height: 32px;
-  border-radius: 10px;
+  border-radius: 8px;
 `
 const DrinkLink = styled(Link)`
   text-decoration: none;
@@ -39,24 +39,43 @@ const DrinkCard = styled.div`
   display: flex;
   width: 90%;
   margin: 5% 5% 0 5%;
+  transition: 0.5s;
+  position: relative;
+  text-align: center;
+  color: white;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 
   @media (min-width: 668px) {
     width: 46%;
-    margin: 5% 2% 0 2%;
+    margin: 3% 2% 0 2%;
   }
   @media (min-width: 1024px) {
     width: 23%;
-    margin: 5% 1% 0 1%;
+    margin: 2% 1% 0 1%;
   }
 `
 const DrinkThumb = styled.img`
   width: 100%;
+  border-radius: 8px;
 `
 const DrinkName = styled.h2`
   font-family: 'Merienda', cursive;
   font-size: 24px;
-  color: black;
-  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-shadow: 4px 4px 8px black;
+  opacity: 40%;
+  transition: 1s;
+
+  ${DrinkCard}:hover &{
+    opacity: 100%;
+  }
 `
 
 export const DrinkList = () => {
