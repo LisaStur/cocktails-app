@@ -63,7 +63,7 @@ const DrinkThumb = styled.img`
 `
 const DrinkName = styled.h2`
   font-family: 'Merienda', cursive;
-  font-size: 24px;
+  font-size: 32px;
   position: absolute;
   top: 50%;
   left: 50%;
