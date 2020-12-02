@@ -1,68 +1,8 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { fetchInfo } from 'reducers/drinksReducer'
-
-const DrinkSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 5%;
-
-  @media (min-width: 668px) {
-    flex-direction: row;
-  }
-`
-const DrinkNameSmallScreen = styled.h2`
-  font-family: 'Merienda', cursive;
-  font-size: 32px;  
-  padding-bottom: 3%;
-  text-align  : center;
-    
-  @media (min-width: 668px) {
-    display: none;
-  }
-`
-const DrinkImage = styled.img`
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-
-  @media (min-width: 668px) {
-    width: 50%;
-  }
-`
-const DrinkNameBigScreen = styled.div`
-  font-family: 'Merienda', cursive;
-  font-size: 32px;  
-  padding-bottom: 3%;
-  display: none;
-
-  @media (min-width: 668px) {
-    display: flex;
-  }  
-`
-const BigScreenContainer = styled.section`
-  display: flex;
-  flex-direction: column;
-  margin-left: 5%;
-`
-const Instructions = styled.p`
-  display: flex;
-  font-size: 24px;
-`
-const Ingredients = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-`
-const Ingredient = styled.p`
-  font-size: 18px;
-  padding-right: 10%;
-  margin-block-start: 0;
-  margin-block-end: 0; 
-`
 
 export const DrinkInfo = () => {
   const dispatch = useDispatch()
@@ -75,10 +15,16 @@ export const DrinkInfo = () => {
 
   return (
     <DrinkSection>
-      <DrinkNameSmallScreen>{info.strDrink}</DrinkNameSmallScreen>
+      <DrinkNameSmallScreen>
+        <BackLink to="/">← Back</BackLink>
+        {info.strDrink}
+      </DrinkNameSmallScreen>
       <DrinkImage src={info.strDrinkThumb} alt={info.strDrink} />
       <BigScreenContainer>
-        <DrinkNameBigScreen>{info.strDrink}</DrinkNameBigScreen>
+        <DrinkNameBigScreen>
+          <BackLink to="/">← Back</BackLink>
+          {info.strDrink}
+        </DrinkNameBigScreen>
         <Instructions>{info.strInstructions}</Instructions>
         <Ingredients>
           <Ingredient>{info.strIngredient1}</Ingredient>
@@ -144,3 +90,75 @@ export const DrinkInfo = () => {
     </DrinkSection>
   )
 }
+const DrinkSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5%;
+
+  @media (min-width: 668px) {
+    flex-direction: row;
+  }
+`
+const BackLink = styled(Link)`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  text-decoration: none;
+  font-family: 'Merienda', cursive;
+  color: black;
+  font-size: 20px;
+  margin-bottom: 10%;
+`
+const DrinkNameSmallScreen = styled.h2`
+  display: flex;
+  flex-direction: column; 
+  font-family: 'Merienda', cursive;
+  font-size: 32px;  
+  padding-bottom: 3%;
+  text-align  : center;
+    
+  @media (min-width: 668px) {
+    display: none;
+  }
+`
+const DrinkImage = styled.img`
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+
+  @media (min-width: 668px) {
+    width: 50%;
+  }
+`
+const DrinkNameBigScreen = styled.div`
+  font-family: 'Merienda', cursive;
+  font-size: 32px;  
+  padding-bottom: 3%;
+  display: none;
+
+  @media (min-width: 668px) {
+    display: flex;
+    flex-direction: column;
+  }  
+`
+const BigScreenContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+`
+const Instructions = styled.p`
+  display: flex;
+  font-size: 24px;
+`
+const Ingredients = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`
+const Ingredient = styled.p`
+  font-size: 18px;
+  padding-right: 10%;
+  margin-block-start: 0;
+  margin-block-end: 0; 
+`
