@@ -1,4 +1,4 @@
-<h1>Cocktail App<h1>
+<h1>Cocktail App</h1>
 <p>Welcome to this Drinks App, a hobby project creating an app with The Cockctail DB API.</p>
 
 <h2>Technologies</h2>
