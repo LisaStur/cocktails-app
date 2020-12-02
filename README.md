@@ -1,7 +1,8 @@
-# Cocktail App
-Creating a drinks app with The COckctail DB API
-Using Raect Redux, Thunks, Styled components and the above API.
+<h1>Cocktail App<h1>
+Welcome to this Cocktail App, a hobby project creating an app with The Cockctail DB API.
 
-Started with local state and fetches and later moved them into redux and thunks.
+<h2>Technologies</h2>
+React, Redux, Thunks, JavaScript, Styled Components and the above API.
 
-link to deployed site: https://time-for-cocktail.netlify.app/
+<h2>View it Live</h2>
+https://time-for-cocktail.netlify.app/
